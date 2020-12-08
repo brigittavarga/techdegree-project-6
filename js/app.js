@@ -71,8 +71,9 @@ function checkLetter(btnClicked) {
     }   
 }
 
-qwerty.addEventListener("click", (e) => {
-    if(e === "BUTTON") {
+qwerty.addEventListener("click", e => {
+    console.log(e);
+    if(qwerty === "BUTTON") {
         qwerty.className = "chosen";
         qwerty.disabled = true;
     }
