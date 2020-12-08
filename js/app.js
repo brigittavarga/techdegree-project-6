@@ -22,8 +22,8 @@ buttonReset.addEventListener("click", () => {
 
 function getRandomPhraseAsArray(arr) {
     // Returns a random phrase from the phrases stored in the array
-    let randomNumber = arr[Math.floor( Math.random() * arr.length )];
-    getRandomPhraseAsArray(phrases);
-    return randomNumber;
+    let randomPhrase = arr[Math.floor( Math.random() * arr.length )];
+    return randomPhrase;
 }
 
+getRandomPhraseAsArray(phrases);
