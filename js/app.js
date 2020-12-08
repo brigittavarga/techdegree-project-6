@@ -47,15 +47,6 @@ function checkLetter(btnClicked) {
             li.className = "show"; // add the “show” class to the li
             match = btnClicked.textContent; // store the button text in the match variable
         }
+        return match;
     }   
-    return match;
 }
-
-/* 
-Create a conditional that compares the text of the button parameter to
-the text of the li at the current index of the loop
-❏ 
-❏ 
-*/
-
-// console.log(getRandomPhraseAsArray(phrases));
