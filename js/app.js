@@ -39,7 +39,7 @@ function getRandomPhraseAsArray(arr) {
 getRandomPhraseAsArray(phrases);
 
 function addPhraseToDisplay(char) {
-    // loops through an array of characters
+    // looping through an array of characters
     for( let i = 0; i < char.length; i++ ) {    
         // for each character in the array create a list item & put the character inside of the list item  
         const li = document.createElement("LI");
@@ -50,6 +50,7 @@ function addPhraseToDisplay(char) {
         } else {
             li.className = "letter";
         }
+        console.log(char[i]);
     }
 }
 
@@ -63,7 +64,16 @@ function checkLetter(btnClicked) {
         if( btnClicked === li[i] ) { // if they match:
             li.className = "show"; // add the “show” class to the li
             match = btnClicked.textContent; // store the button text in the match variable
+            return match;
+        } else {
+            return null;
         }
-        return match;
     }   
 }
+
+qwerty.addEventListener("click", (e) => {
+    if(e === "BUTTON") {
+        qwerty.className = "chosen";
+        qwerty.disabled = true;
+    }
+})
