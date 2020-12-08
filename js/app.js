@@ -20,8 +20,10 @@ buttonReset.addEventListener("click", () => {
     overlay.style.display = "none";
 });
 
-function getRandomPhraseAsArray(arr, ) {
+function getRandomPhraseAsArray(arr) {
     // Returns a random phrase from the phrases stored in the array
     let randomNumber = arr[Math.floor( Math.random() * arr.length )];
+    getRandomPhraseAsArray(phrases);
     return randomNumber;
 }
+
