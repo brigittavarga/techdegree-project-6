@@ -43,11 +43,11 @@ function addPhraseToDisplay(char) {
     for( let i = 0; i < char.length; i++ ) {    
         // for each character in the array create a list item & put the character inside of the list item  
         const li = document.createElement("LI");
-        // append that list item to the #phrase ul in your HTML
+        li.textContent = char[i];
         phrase.appendChild(li);
-        if( char == " " ) {    // If the character in the array is a letter and not a space....... 
+        if( char[i] === " " ) {    // If the character in the array is a letter and not a space....... 
             li.className = "space"; 
-        } else if ( char !== " "){
+        } else {
             li.className = "letter";
         }
     }
