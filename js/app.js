@@ -38,8 +38,22 @@ function getRandomPhraseAsArray(arr) {
 
 getRandomPhraseAsArray(phrases);
 
+function addPhraseToDisplay(char) {
+    // loops through an array of characters
+    for( let i = 0; i < char.length; i++ ) {    
+        // for each character in the array create a list item & put the character inside of the list item  
+        let li = char[i].createElement("LI");
+        // append that list item to the #phrase ul in your HTML
+        phrase.appendChild(li);
+        if( char  ) {    // If the character in the array is a letter and not a space....... 
+            li.className = "letter";  // .... the function should add the class “letter” to the list item
+        }
+    }
+}
+
+
 function checkLetter(btnClicked) {
-    const li = document.querySelector("li"); // hearts (number of tries)
+    const li = document.querySelector("li");
     const match = 0;      // variable to store if a match is found
 
     for ( let i = 0; i < li.length; i++ ) {
