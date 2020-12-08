@@ -3,6 +3,15 @@ const phrase = document.getElementById("phrase");
 const buttonReset = document.querySelector(".btn__reset");
 const overlay = document.getElementById("overlay");
 
+
+// Creating an extra h3 element and adding it to #overlay 
+const gamblePhrase = document.createElement("H3");  
+gamblePhrase.innerHTML = "What is life if not a gamble?";  
+overlay.appendChild(gamblePhrase);  
+gamblePhrase.style.fontWeight = 100;
+gamblePhrase.style.textTransform = "uppercase";
+gamblePhrase.style.letterSpacing = "9.5px";
+
 // Keep track of the number of guesses the player has missed 
 const missed = 0;
 
@@ -23,8 +32,30 @@ buttonReset.addEventListener("click", () => {
 function getRandomPhraseAsArray(arr) {
     // Returns a random phrase from the phrases stored in the array
     let randomPhrase = arr[Math.floor( Math.random() * arr.length )];
-    return randomPhrase;
-    var phraseAsArray = randomPhrase.split(" ");
+    var phraseAsArray = randomPhrase.split("");
+    return phraseAsArray;
 }
 
 getRandomPhraseAsArray(phrases);
+
+function checkLetter(btnClicked) {
+    const li = document.querySelector("li"); // hearts (number of tries)
+    const match = 0;      // variable to store if a match is found
+
+    for ( let i = 0; i < li.length; i++ ) {
+        if( btnClicked === li[i] ) { // if they match:
+            li.className = "show"; // add the “show” class to the li
+            match = btnClicked.textContent; // store the button text in the match variable
+        }
+    }   
+    return match;
+}
+
+/* 
+Create a conditional that compares the text of the button parameter to
+the text of the li at the current index of the loop
+❏ 
+❏ 
+*/
+
+// console.log(getRandomPhraseAsArray(phrases));
