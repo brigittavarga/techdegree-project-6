@@ -42,15 +42,18 @@ function addPhraseToDisplay(char) {
     // loops through an array of characters
     for( let i = 0; i < char.length; i++ ) {    
         // for each character in the array create a list item & put the character inside of the list item  
-        let li = char[i].createElement("LI");
+        const li = document.createElement("LI");
         // append that list item to the #phrase ul in your HTML
         phrase.appendChild(li);
-        if( char  ) {    // If the character in the array is a letter and not a space....... 
-            li.className = "letter";  // .... the function should add the class “letter” to the list item
+        if( char == " " ) {    // If the character in the array is a letter and not a space....... 
+            li.className = "space"; 
+        } else if ( char !== " "){
+            li.className = "letter";
         }
     }
 }
 
+addPhraseToDisplay(getRandomPhraseAsArray(phrases));
 
 function checkLetter(btnClicked) {
     const li = document.querySelector("li");
