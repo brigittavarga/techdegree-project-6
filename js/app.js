@@ -50,31 +50,32 @@ function addPhraseToDisplay(char) {
         } else {
             li.className = "letter";
         }
-        console.log(char[i]);
+        // console.log(char[i]);
     }
 }
 
 addPhraseToDisplay(getRandomPhraseAsArray(phrases));
 
 function checkLetter(btnClicked) {
-    const li = document.querySelector("li");
+    const letters = document.querySelectorAll(".letter");
     const match = 0;      // variable to store if a match is found
-
-    for ( let i = 0; i < li.length; i++ ) {
-        if( btnClicked === li[i] ) { // if they match:
-            li.className = "show"; // add the “show” class to the li
+    console.log(letters);
+    for ( let i = 0; i < letters.length; i++ ) {
+        if( btnClicked === letters[i] ) { // if they match:
+            letters.className = "show"; // add the “show” class to the li
             match = btnClicked.textContent; // store the button text in the match variable
             return match;
         } else {
             return null;
         }
-    }   
+    }
 }
 
 qwerty.addEventListener("click", e => {
-    console.log(e);
-    if(qwerty === "BUTTON") {
-        qwerty.className = "chosen";
-        qwerty.disabled = true;
+    const clickedButton = e.target;
+    if(clickedButton.tagName === "BUTTON") {
+        clickedButton.className = "chosen";
+        clickedButton.disabled = true;
+        const letterFound = checkLetter(clickedButton);
     }
 })
