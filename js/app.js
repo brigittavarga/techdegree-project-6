@@ -58,17 +58,14 @@ addPhraseToDisplay(getRandomPhraseAsArray(phrases));
 
 function checkLetter(btnClicked) {
     const letters = document.querySelectorAll(".letter");
-    const match = 0;      // variable to store if a match is found
-    console.log(letters);
+    let match = null;      // variable to store if a match is found
     for ( let i = 0; i < letters.length; i++ ) {
-        if( btnClicked === letters[i] ) { // if they match:
-            letters.className = "show"; // add the “show” class to the li
-            match = btnClicked.textContent; // store the button text in the match variable
-            return match;
-        } else {
-            return null;
+        if( btnClicked.textContent === letters[i].textContent.toLowerCase() ) { // if they match:
+            letters[i].classList.add("show"); // add the “show” class to the li
+            match = btnClicked.textContent.toLowerCase(); // store the button text in the match variable
         }
-    }
+    } 
+    return match;
 }
 
 qwerty.addEventListener("click", e => {
