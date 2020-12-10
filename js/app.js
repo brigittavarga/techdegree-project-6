@@ -91,18 +91,12 @@ function checkWin () {
         const winTitle = document.querySelector("H2");
         winTitle.innerHTML = "Congratulations! You won 🎉 ";
         overlay.style.display = "flex";
-
-        const resetButton = document.createElement("BUTTON");
-        resetButton.style.innerHTML = "Start A New Game";
-        body.appendChild(resetButton);
     }
     if ( missed > 4 ) { // if the missed counter is greater than 4, 
         overlay.classList.add("lose"); // add the .lose to the overlay
         const winTitle = document.querySelector("H2");
         winTitle.innerHTML = "Sorry! You lost 😿 ";
-        overlay.style.display = "flex";
-
-        
+        overlay.style.display = "flex";   
     }
 }
 
