@@ -103,8 +103,31 @@ function checkWin () {
         winTitle.innerHTML = "Sorry! You lost 😿 ";
         overlay.style.display = "flex";
 
-        const resetButton = document.createElement("BUTTON");
-        resetButton.style.innerHTML = "Start A New Game";
-        body.appendChild(resetButton);
+        
     }
 }
+
+// create a reset button
+const resetButton = document.createElement("BUTTON");
+resetButton.style.innerHTML = "Start A New Game";
+overlay.appendChild(resetButton);
+resetButton.className = "btn__reset";
+
+
+function resetGame () {
+
+    // reset the missed guesses to zero
+    missed = 0;
+
+    // replace the liveHeart images
+    const hearts = document.querySelectorAll(".tries img");
+    hearts.src = "images/liveHeart.png";
+
+    // get a new phrase and add it to the ul 
+    addPhraseToDisplay(getRandomPhraseAsArray(phrases));
+
+}
+ 
+// empty the phrase ul 
+// enable the buttons on the keyboard
+// remove the chosen class from those buttons
