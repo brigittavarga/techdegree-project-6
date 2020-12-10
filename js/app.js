@@ -107,6 +107,8 @@ function checkWin () {
     }
 }
 
+resetGame();
+
 // create a reset button
 const resetButton = document.createElement("BUTTON");
 resetButton.style.innerHTML = "Start A New Game";
@@ -115,7 +117,6 @@ resetButton.className = "btn__reset";
 
 
 function resetGame () {
-
     // reset the missed guesses to zero
     missed = 0;
 
@@ -129,5 +130,5 @@ function resetGame () {
 }
  
 // empty the phrase ul 
-// enable the buttons on the keyboard
-// remove the chosen class from those buttons
+// enable the buttons on the keyboard 
+// remove the chosen class from those buttons 
