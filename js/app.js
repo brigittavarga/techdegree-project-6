@@ -1,5 +1,5 @@
 const qwerty = document.getElementById("qwerty");
-const phrase = document.getElementById("phrase");
+const phrase = document.querySelector("#phrase ul");
 const buttonReset = document.querySelector(".btn__reset");
 const overlay = document.getElementById("overlay");
 const hearts = document.querySelectorAll(".tries img");
@@ -27,6 +27,7 @@ const phrases = [
 // Hide overlay on the reset button
 buttonReset.addEventListener("click", () => {
     overlay.style.display = "none";
+    resetGame();
 });
 
 function getRandomPhraseAsArray(arr) {
@@ -107,28 +108,27 @@ function checkWin () {
     }
 }
 
-resetGame();
-
-// create a reset button
-const resetButton = document.createElement("BUTTON");
-resetButton.style.innerHTML = "Start A New Game";
-overlay.appendChild(resetButton);
-resetButton.className = "btn__reset";
-
 
 function resetGame () {
     // reset the missed guesses to zero
     missed = 0;
 
     // replace the liveHeart images
-    const hearts = document.querySelectorAll(".tries img");
-    hearts.src = "images/liveHeart.png";
+    for ( let i = 0; i < hearts.length; i++ ) {
+        hearts[i].src = "images/liveHeart.png"
+    }
+
+    // empty the phrase ul 
+    phrase.innerHTML = "";
 
     // get a new phrase and add it to the ul 
     addPhraseToDisplay(getRandomPhraseAsArray(phrases));
 
+    // enable the buttons on the keyboard 
+    for ( let i = 0; i < qwerty.length; i++ ) {
+        qwerty.disabled = false; 
+        qwerty.classList.remove("chosen"); // remove the chosen class from those buttons 
+
+    }
 }
- 
-// empty the phrase ul 
-// enable the buttons on the keyboard 
-// remove the chosen class from those buttons 
+
