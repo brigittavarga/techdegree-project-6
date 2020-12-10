@@ -2,6 +2,7 @@ const qwerty = document.getElementById("qwerty");
 const phrase = document.getElementById("phrase");
 const buttonReset = document.querySelector(".btn__reset");
 const overlay = document.getElementById("overlay");
+const hearts = document.querySelectorAll(".tries img");
 
 // Creating an extra h3 element and adding it to #overlay 
 const gamblePhrase = document.createElement("H3");  
@@ -9,7 +10,7 @@ gamblePhrase.innerHTML = "What is life if not a gamble?";
 overlay.appendChild(gamblePhrase);  
 gamblePhrase.style.fontWeight = 100;
 gamblePhrase.style.textTransform = "uppercase";
-gamblePhrase.style.letterSpacing = "9.5px";
+gamblePhrase.style.letterSpacing = "6px";
 
 // Keep track of the number of guesses the player has missed 
 let missed = 0;
@@ -91,11 +92,19 @@ function checkWin () {
         const winTitle = document.querySelector("H2");
         winTitle.innerHTML = "Congratulations! You won 🎉 ";
         overlay.style.display = "flex";
+
+        const resetButton = document.createElement("BUTTON");
+        resetButton.style.innerHTML = "Start A New Game";
+        body.appendChild(resetButton);
     }
     if ( missed > 4 ) { // if the missed counter is greater than 4, 
         overlay.classList.add("lose"); // add the .lose to the overlay
         const winTitle = document.querySelector("H2");
         winTitle.innerHTML = "Sorry! You lost 😿 ";
         overlay.style.display = "flex";
+
+        const resetButton = document.createElement("BUTTON");
+        resetButton.style.innerHTML = "Start A New Game";
+        body.appendChild(resetButton);
     }
 }
