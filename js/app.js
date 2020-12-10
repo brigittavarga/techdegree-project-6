@@ -3,7 +3,6 @@ const phrase = document.getElementById("phrase");
 const buttonReset = document.querySelector(".btn__reset");
 const overlay = document.getElementById("overlay");
 
-
 // Creating an extra h3 element and adding it to #overlay 
 const gamblePhrase = document.createElement("H3");  
 gamblePhrase.innerHTML = "What is life if not a gamble?";  
@@ -74,8 +73,29 @@ qwerty.addEventListener("click", e => {
         clickedButton.className = "chosen";
         clickedButton.disabled = true;
         const letterFound = checkLetter(clickedButton);
-        if(typeOf(letterFound) === "null") {
-            missed[0] ++;
+        if( letterFound === null ) {
+            const hearts = document.querySelectorAll(".tries img");
+            hearts[missed].src = "images/lostHeart.png";
+            missed ++;
         }
     }
 })
+
+function checkWin () {
+    const letter = document.querySelectorAll(".letter");
+    const show = document.querySelectorAll(".show");
+
+    if ( letter.length === show.length ) { // if the length of letter & show are the same,
+        overlay.classList.add("win"); // display the win overlay by adding the .win to the overlay
+        const winTitle = document.querySelector("H2");
+        winTitle.innerHTML = "Congratulations! You won 🎉 ";
+        overlay.style.display = "flex";
+    }
+    if ( missed > 4 ) { // if the missed counter is greater than 4, 
+        overlay.classList.add("lose"); // add the .lose to the overlay
+        const winTitle = document.querySelector("H2");
+        winTitle.innerHTML = "Sorry! You lost 😿 ";
+        overlay.style.display = "flex";
+    }
+}
+

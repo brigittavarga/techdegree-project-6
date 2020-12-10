@@ -83,8 +83,9 @@ button {
   font-size: var(--font-size-medium);
   height: 65px;
   width: 65px;
-  padding: 20px 1px 0 1px;
-  margin-right: 2px;
+  padding: 15px 1px 0 1px;
+  margin-top: 20px;
+  margin-right: 10px;
   color: transparent;
   background: var(--color-neutral-light);
   border-radius: 5px;
@@ -97,6 +98,7 @@ button {
 .show {
   color: #000;
   background-color: #76ce82;
+  font-family: Nunito, sans-serif;
 }
 
 /* Keyboard */
