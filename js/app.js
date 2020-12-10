@@ -98,4 +98,3 @@ function checkWin () {
         overlay.style.display = "flex";
     }
 }
-
