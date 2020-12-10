@@ -13,7 +13,7 @@ gamblePhrase.style.textTransform = "uppercase";
 gamblePhrase.style.letterSpacing = "9.5px";
 
 // Keep track of the number of guesses the player has missed 
-const missed = 0;
+let missed = 0;
 
 // Store phrases in an array
 const phrases = [
@@ -74,5 +74,8 @@ qwerty.addEventListener("click", e => {
         clickedButton.className = "chosen";
         clickedButton.disabled = true;
         const letterFound = checkLetter(clickedButton);
+        if(typeOf(letterFound) === "null") {
+            missed[0] ++;
+        }
     }
 })
