@@ -79,6 +79,7 @@ qwerty.addEventListener("click", e => {
             missed ++;
         }
     }
+    checkWin();
 })
 
 function checkWin () {
