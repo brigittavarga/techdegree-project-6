@@ -55,8 +55,6 @@ function addPhraseToDisplay(char) {
     }
 }
 
-addPhraseToDisplay(getRandomPhraseAsArray(phrases));
-
 function checkLetter(btnClicked) {
     const letters = document.querySelectorAll(".letter");
     let match = null;      // variable to store if a match is found
@@ -125,10 +123,10 @@ function resetGame () {
     addPhraseToDisplay(getRandomPhraseAsArray(phrases));
 
     // enable the buttons on the keyboard 
-    for ( let i = 0; i < qwerty.length; i++ ) {
-        qwerty.disabled = false; 
-        qwerty.classList.remove("chosen"); // remove the chosen class from those buttons 
-
+    const chosenButton = document.querySelectorAll(".chosen");
+    for ( let i = 0; i < chosenButton.length; i++ ) {
+        chosenButton[i].disabled = false; 
+        chosenButton[i].classList.remove("chosen"); // remove the chosen class from those buttons 
     }
 }
 
