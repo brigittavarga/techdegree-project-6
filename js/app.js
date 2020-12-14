@@ -51,7 +51,6 @@ function addPhraseToDisplay(char) {
         } else {
             li.className = "letter";
         }
-        // console.log(char[i]);
     }
 }
 
